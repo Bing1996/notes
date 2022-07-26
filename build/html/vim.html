@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>VIM &#8212; Shengbin&#39;s Notes 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Linux" href="linux.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="vim">
+<h1>VIM<a class="headerlink" href="#vim" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>什么是vim<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<p>Vim 是从 vi 发展出来的一个文本编辑器。代码补全、编译及错误跳转等方便编程的功能特别丰富，在程序员中被广泛使用。
+简单的来说， vi 是老式的字处理器，不过功能已经很齐全了，但是还是有可以进步的地方。 vim 则可以说是程序开发者的一项很好用的工具。连 vim 的官方网站 (<a class="reference external" href="https://www.vim.org/">https://www.vim.org/</a>) 自己也说 vim 是一个程序开发工具而不是文字处理软件</p>
+</section>
+<section id="id2">
+<h2>vim基础操作<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>关于vim的三种模式：普通模式，可视模式和插入模式。可视模式根可视模式跟普通编辑器的选中有点像，都会选中一片文字，然后可以对选中的文字做一些操作。但 vim 的可视模式分三种，分别是：普通选中、按行选中和按列选中。使用v开始普通选中，使用V开始行选中，使用ctrl+v开始列选中。选中之后可以执行其他操作，返回普通模式直接按Esc。</p>
+<dl class="simple">
+<dt>以下是一些很重要的操作方式：</dt><dd><ul class="simple">
+<li><p>^表示移到行首、$表示移到行尾。用过正则的朋友应该熟悉这两个字母。vim 还支持按单词移动，如w表示跳到下一个单词的开头，e表示跳到下一个单词的结尾</p></li>
+<li><p>vim 行内移动的大杀器则是行内查找。大家可以通过键入f;跳转到当前行的下一个;上。这个f表示向前（行尾）查找；如果要向后查找，则需使用F。注意，行内查找仅支持单个字母</p></li>
+<li><p>向上翻页用ctrl+b，向下用ctrl+f。跳到文件的第一行用gg，最后一行用G</p></li>
+</ul>
+</dd>
+<dt>删除修改查找</dt><dd><ul class="simple">
+<li><p>删除当前行用dd。删除光标所在的字母用x，修改用r+新字母。也可以选中之后按x或者d删除整片文字。大家选中之后还可以按c，vim 会删除选中内容，并切换到插入模式</p></li>
+<li><p>vim 还有一个所谓的替换模式(Replace)，通过R开启，开启后光标所在的内容会被新输入的内容替换。结束用esc返回普通模式。</p></li>
+<li><p>只替换当前行:s/vi/vim/。这里的:让 vim 切换到命令模式，s表示替换，/vi/vim/表示将 vim 替换为 vim。表示回车。命令模式在执行完成之后会自动切换回普通模式。</p></li>
+<li><p>vim 默认只会替换查找到的第一个 vi。如果要替换行内所有的 vim，则需要输入:s/vi/vim/g，注意最后的g。如果要全文替换，可以输入:%s/vi/vim/g</p></li>
+<li><p>撤销上次操作用u，反撤销用ctrl+r。</p></li>
+</ul>
+</dd>
+<dt>关于保存</dt><dd><ul class="simple">
+<li><p>保存退出都要在命令模式下完成。保存用:w path.txt，退出用:q。如果是编辑已经存在的文件可以直接用:wq退出</p></li>
+</ul>
+</dd>
+<dt>Vim范式</dt><dd><ul class="simple">
+<li><p>改动+重复可以使用.。如：先是cawhello esc将当前单词那成 hello，按w跳到下一个单词，再按.就会重复上次的改动将单词改成 hello。</p></li>
+<li><p>数字+操作可以重复执行多次相同的操作。如：j表示向下移动一行，10j表示向下移动 10 行。 p表示粘贴一次，10p表示粘贴 10 次。</p></li>
+<li><p>动作+范围可以显著提升效率。如：y$会复制从光标当前位置到行尾的所有内容；df;会删除光标所在位置到行内下一个分号间的所有内容。</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="id3">
+<h2>VIM 插件<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<p>NERDTree文件树管理工具
+NERDTree为Vim编辑器的文件管理工具，使用这个插件，用户能够直接可视化复杂的文件树继承关系，快速对文件进行读取与写入功能。</p>
+<p>关于安装&amp;使用</p>
+<p>NERDTree on Vim 8+ 安装
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">preservim</span><span class="o">/</span><span class="n">nerdtree</span><span class="o">.</span><span class="n">git</span> <span class="o">~/.</span><span class="n">vim</span><span class="o">/</span><span class="n">pack</span><span class="o">/</span><span class="n">vendor</span><span class="o">/</span><span class="n">start</span><span class="o">/</span><span class="n">nerdtree</span>
+<span class="n">vim</span> <span class="o">-</span><span class="n">u</span> <span class="n">NONE</span> <span class="o">-</span><span class="n">c</span> <span class="s2">&quot;helptags ~/.vim/pack/vendor/start/nerdtree/doc&quot;</span> <span class="o">-</span><span class="n">c</span> <span class="n">q</span>
+</pre></div>
+</div>
+<p>关于NERDTree热键设置
+.. code-block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">leader</span><span class="o">&gt;</span><span class="n">n</span> <span class="p">:</span><span class="n">NERDTreeFocus</span><span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+<span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">n</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">NERDTree</span><span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+<span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">t</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">NERDTreeToggle</span><span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+<span class="n">nnoremap</span> <span class="o">&lt;</span><span class="n">C</span><span class="o">-</span><span class="n">f</span><span class="o">&gt;</span> <span class="p">:</span><span class="n">NERDTreeFind</span><span class="o">&lt;</span><span class="n">CR</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Shengbin's Notes</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">VIM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">什么是vim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">vim基础操作</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">VIM 插件</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="linux.html" title="previous chapter">Linux</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Shengin Jia.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/vim.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

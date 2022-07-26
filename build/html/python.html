@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Python &#8212; Shengbin&#39;s Notes 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="C++" href="cpp.html" />
+    <link rel="prev" title="Welcome to Shengbin’s Notes’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="python">
+<h1>Python<a class="headerlink" href="#python" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>Python装饰器<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>什么是Python装饰器
+一个装饰器就是一个函数，它接受一个函数作为函数并返回这一个新的函数</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>Python单元测试<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>实际上，如果能把函数的功能性实现的print结果和预期结果落实到测试代码中，加几个assert语句，就是单元测试了。并且这些词是代码也能成为很好的API手册，看这些测试用例就知道如何进行调用了。</p>
+<ul class="simple">
+<li><p>为什么要做单元测试？</p>
+<ul>
+<li><p>编写单元测试的难易程度能够直接反应出代码的设计水平，能写出单元测试和写不出单元测试之间体现了编程能力上的巨大的鸿沟</p></li>
+<li><p>确保代码质量</p></li>
+<li><p>改善代码设计， 难以测试的代码一般都是不够简洁的代码</p></li>
+<li><p>保证重构不会引入新的问题，以函数为单位进行重构的时候，只需要重新跑测试基本就可以保证不引入新的问题</p></li>
+</ul>
+</li>
+<li><p>目前Python的单元测试有许多，unittest、pydoc、pytest等。此工具书仅展示Python原生库中的unittest模块所带来的单元测试</p></li>
+<li><p>测试驱动开发TDD的流程</p></li>
+</ul>
+<dl class="simple">
+<dt>为了实现一个函数，采用TDD的流程</dt><dd><ol class="arabic simple">
+<li><p>在编写失败的单元测试之前，不编写任何其他产品代码</p></li>
+<li><p>只要有一个单元测试失败，就不再写测试代码</p></li>
+<li><p>产品代码能够让当前失败的单元测试成功通过即可</p></li>
+</ol>
+</dd>
+</dl>
+<p>关于驱动代码、桩代码和Mock代码</p>
+<ul class="simple">
+<li><p>驱动代码（Driver）指调用被测函数的代码，在单元测试过程中，驱动模块通常包括调用被测函数前的数据准备、调用被测函数以及验证相关结果三个步骤。驱动代码的结构，通常由单元测试的框架决定。</p></li>
+<li><p>桩代码（Stub）是用来代替真实代码的临时代码，比如，某个函数A的内部实现中调用了一个尚未实现的函数B，为了对函数A的逻辑进行测试，那么就需要模拟一个函数B，这个模拟的函数B的实现就是所谓的桩代码。</p></li>
+<li><p>Mock代码和桩代码的本质区别是:测试期待结果的验证（Assert and Expectiation）。</p>
+<ul>
+<li><p>对于Mock代码来说，会关注Mock方法是否被调用，以什么样的参数被调用，被调用的次数，以及多个Mock函数的先后调用顺序。所以在使用Mock代码的测试中，对于结果的验证（也就是assert），通常出现在Mock函数中。</p></li>
+<li><p>对于桩代码来说，是利用Stub来控制被测函数的执行路径，不会去关注Stub是否被调用以及怎么样被调用。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Shengbin's Notes</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">Python装饰器</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Python单元测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux.html">Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vim.html">VIM</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to Shengbin’s Notes’s documentation!</a></li>
+      <li>Next: <a href="cpp.html" title="next chapter">C++</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Shengin Jia.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/python.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

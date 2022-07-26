@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Linux &#8212; Shengbin&#39;s Notes 0.0.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="VIM" href="vim.html" />
+    <link rel="prev" title="MySQL" href="mysql.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2>关于Linux的各类发布版本<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="id2">
+<h2>内网文件夹的挂载<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<p>前提条件：具有将要挂载的服务器的权限。
+通过/etc/fstab配置文件添加相应的参数然后mount实现功能</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">mkdir</span> <span class="o">/</span><span class="n">the_target_mount_dir_at_local_network</span>
+<span class="n">sudo</span> <span class="n">chown</span> <span class="n">shengbin</span><span class="p">:</span><span class="n">shengbin</span> <span class="o">/</span><span class="n">the_target_mount_dir_at_local_network</span>
+<span class="n">sudo</span> <span class="n">echo</span> <span class="s2">&quot;&quot;</span><span class="mf">192.168.185.40</span><span class="p">:</span><span class="o">/</span><span class="n">data_NAS</span> <span class="o">/</span><span class="n">data_NAS</span> <span class="n">nfs</span> <span class="n">defaults</span> <span class="mi">0</span> <span class="mi">0</span><span class="s2">&quot; &gt;&gt; /etc/fstab</span>
+<span class="n">sudo</span> <span class="n">mount</span> <span class="o">--</span><span class="nb">all</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Shengbin's Notes</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp.html">C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">关于Linux的各类发布版本</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">内网文件夹的挂载</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="vim.html">VIM</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="mysql.html" title="previous chapter">MySQL</a></li>
+      <li>Next: <a href="vim.html" title="next chapter">VIM</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, Shengin Jia.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 5.0.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/linux.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
